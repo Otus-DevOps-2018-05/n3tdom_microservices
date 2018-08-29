@@ -4,7 +4,8 @@ n3tdom microservices repository
 - [n3tdom_microservices](#n3tdom_microservices)
   - [hw-1x шаблон](#hw-1x-шаблон)
     - [Основное задание](#Основное-задание)
-    - [Задание со *](#Задание-со-)
+    - [Задание со * #1: Запустить с пробросом переменных-алиасов](#Задание-со--1-Запустить-с-пробросом-переменных-алиасов)
+    - [Задание со * #2: Пересобрать облегченные образы на базе alphine linux](#Задание-со--2-Пересобрать-облегченные-образы-на-базе-alphine-linux)
   - [hw-11 шаблон](#hw-11-шаблон)
     - [Основное задание](#Основное-задание-1)
     - [Задание со *: поднятие инстансов (gcp+terraform+ansible+packer)](#Задание-со--поднятие-инстансов-gcpterraformansiblepacker)
@@ -20,8 +21,23 @@ n3tdom microservices repository
 ## hw-1x шаблон
 ### Основное задание
 
-### Задание со *
+### Задание со * #1: Запустить с пробросом переменных-алиасов
+docker run -d --network=reddit --network-alias=db  -v reddit_db:/data/db mongo:latest
+docker run -d --network=reddit --network-alias=reddit-post  -e "POST_DATABASE_HOST=db" n3tdom/post:1.0
+docker run -d --network=reddit --network-alias=reddit-comment  -e "COMMENT_DATABASE_HOST=db" n3tdom/comment:1.0
+docker run -d --network=reddit -p 9292:9292 \
+-e "POST_SERVICE_HOST=reddit-post" \
+-e "COMMENT_SERVICE_HOST=reddit-comment" \
+n3tdom/ui:2.0
 
+### Задание со * #2: Пересобрать облегченные образы на базе alphine linux
+Не выполнялось
+
+
+docker run -d --network=reddit --network-alias=post_db --network-alias=comment_db mongo:latest
+docker run -d --network=reddit --network-alias=post n3tdom/post:1.0
+docker run -d --network=reddit --network-alias=comment n3tdom/comment:1.0
+docker run -d --network=reddit -p 9292:9292 n3tdom/ui:2.0
 
 ---
 ## hw-11 шаблон
