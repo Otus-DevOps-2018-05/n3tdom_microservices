@@ -5,7 +5,7 @@ n3tdom microservices repository
   - [hw-1x](#hw-1x)
     - [Основное задание](#Основное-задание)
     - [Задание со * -](#Задание-со---)
-  - [hw-12 docker-3](#hw-12-docker-3)
+  - [hw-12 docker-4](#hw-12-docker-4)
     - [Основное задание](#Основное-задание-1)
     - [Задание со * - docker-compose.override.yml Дебаг и редактирование соурс кода без ребилда образа](#Задание-со----docker-composeoverrideyml-Дебаг-и-редактирование-соурс-кода-без-ребилда-образа)
   - [hw-11 docker-3](#hw-11-docker-3)
@@ -25,7 +25,7 @@ n3tdom microservices repository
 ### Задание со * -
 ---
 
-## hw-12 docker-3
+## hw-12 docker-4
 ### Основное задание
 - Работа с сетями в Docker
 - Использование docker-compose
