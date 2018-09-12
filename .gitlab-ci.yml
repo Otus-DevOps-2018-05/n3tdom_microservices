@@ -38,7 +38,6 @@ deploy_dev_job:
     name: dev
     url: http://dev.example.com
 
-
 staging:
   stage: stage
   when: manual
