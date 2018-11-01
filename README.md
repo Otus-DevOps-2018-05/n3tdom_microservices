@@ -31,7 +31,7 @@ n3tdom microservices repository
 - Использование docker-compose
 
 ### Задание со * - docker-compose.override.yml Дебаг и редактирование соурс кода без ребилда образа
-- Параметры запуска передаются с помощьюh ttps://docs.docker.com/v17.09/compose/compose-file/#entrypoint При этом CMD[] внутри Dockerfile игнорируется
+- Параметры запуска передаются с помощьюh ttps://docs.docker.com/v17.09/compose/compose-file/#entrypoint При этом CMD[] внутри Dockerfile игнорируется.
 - При запуске команды из второго -f дополняют/перезаписывают команды в первом
 ```docker-compose -f docker-compose.yml -f docker-compose-override.yml up -d```
 - Логи пумы направленные в stdout sterror можно увидеть с помощью ```docker logs reddit_ui_1```
