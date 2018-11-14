@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3'
 services:
 
   post_db:
@@ -9,6 +9,8 @@ services:
       back_net:
           aliases:
             - comment_db
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
 
   ui:
     image: "${USERNAME}/ui:${ui_version:-1.0}"
@@ -16,18 +18,34 @@ services:
       - "${ui_exposed_web:-9292}:9292/tcp"
     networks:
       - front_net
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: service.ui
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
 
   post:
     image: "${USERNAME}/post:${post_version:-1.0}"
     networks:
       - front_net
       - back_net
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: service.post
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
 
   comment:
     image: "${USERNAME}/comment:${comment_version:-1.0}"
     networks:
       - front_net
       - back_net
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
 
 volumes:
   post_db:
