@@ -50,8 +50,9 @@ n3tdom microservices repository
 ## hw-18 kubernetes-2
 ### Основное задание
 - Написание конфигураций для приложения (.yml)
-- minicube
-- GKE
+- Развертывание в minicube
+- Развертывание в GKE
+- Namespaces
 
 ### Задание со * -
 TODO: Не выполнялось
